@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+	home
+{% endblock %}
+	{% block content %}
+{% for detail in detail %}
+	<div class="container">
+		<div class="row fh5co-post-entry">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+				<img src="{{detail.image.url}}" alt="Image" class="img-responsive">
+				</figure>
+				<span class="fh5co-meta">{{detail.categories}}</span>
+				<h2 class="fh5co-article-title"><a href="{% url 'moreDetails' detail.id %}">{{detail.title}}</a></h2>
+				<span class="fh5co-meta fh5co-date">{{detail.date}}</span>
+			</article>
+		</div>
+	</div>
+	{% endfor %}
+	{% endblock %}
+
+	
